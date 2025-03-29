@@ -1,0 +1,91 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 230 80% 80%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-nebula-dark text-foreground antialiased overflow-x-hidden;
+    background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, rgba(15, 23, 42, 1) 70%);
+  }
+
+  .nebula-glass {
+    @apply backdrop-blur-lg bg-white/5 border border-white/10 shadow-lg;
+  }
+
+  .sentiment-glow {
+    @apply transition-all duration-500;
+  }
+
+  .sentiment-positive {
+    @apply sentiment-glow border-nebula-positive/30 shadow-[0_0_15px_rgba(34,211,238,0.3)];
+  }
+
+  .sentiment-neutral {
+    @apply sentiment-glow border-nebula-neutral/30 shadow-[0_0_15px_rgba(129,140,248,0.2)];
+  }
+
+  .sentiment-negative {
+    @apply sentiment-glow border-nebula-negative/30 shadow-[0_0_15px_rgba(244,114,182,0.3)];
+  }
+
+  .media-dock {
+    @apply fixed bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center 
+           p-3 rounded-full nebula-glass opacity-0 transition-opacity duration-300 
+           hover:opacity-100 focus:opacity-100;
+  }
+
+  .media-dock:hover, .media-dock:focus-within {
+    @apply opacity-100;
+  }
+
+  .nebula-icon {
+    @apply h-6 w-6 text-white/70 hover:text-white transition-colors;
+  }
+}
+
+#root {
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
